@@ -78,7 +78,7 @@ public class GreetingsController {
 	//------------------------------------------------Buscar por Nome---------------------------------------------------------
 	@GetMapping(value = "buscaPorNome") /* Mapeia a url */
 	@ResponseBody /* Descricao da resposta */
-	public ResponseEntity<List<Cliente>> buscaPorNome(@RequestParam(name = "name") String name){/* Recebe os dados para salvar */ 
+	public ResponseEntity<List<Cliente>> buscaPorNome(String name){/* Recebe os dados para salvar */ 
 
 		List<Cliente> cliente = clienteRepository.buscaPorNome(name.trim().toUpperCase());
 
