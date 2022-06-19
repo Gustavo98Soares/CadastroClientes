@@ -10,78 +10,301 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/67ab66b744.js"
+	crossorigin="anonymous"></script>
 
-<title>Insert title here</title>
+<!-- CSS -->
+<style type="text/css">
+html {
+	margin: 0 5% 0 5%;
+}
+</style>
+<title>Cadastro de Clientes</title>
 </head>
 <body>
-	<h1>CLIENTESffsas</h1>
-	<header>
-		<div class="btn-group" role="group" aria-label="Basic example">
-			<button type="button" class="btn btn-primary">Ver Clientes</button>
-			<button type="button" class="btn btn-primary">Cadastrar
-				Clientes</button>
-			<button type="button" class="btn btn-primary">Editar Cliente</button>
+	<h1>CADASTRO DE CLIENTES</h1>
+	<nav>
+		<div class="nav nav-tabs" id="nav-tab" role="tablist">
+			<button class="nav-link active" id="nav-home-tab"
+				data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+				role="tab" aria-controls="nav-home" aria-selected="true">Clientes</button>
+			<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+				data-bs-target="#nav-profile" type="button" role="tab"
+				aria-controls="nav-profile" aria-selected="false" onclick="document.getElementById('cadastroClientes').reset()">Cadastrar</button>
+			<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+				data-bs-target="#nav-contact" type="button" role="tab"
+				aria-controls="nav-contact" aria-selected="false">Contact</button>
 		</div>
-	</header>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+		<!--------------------------------------------------Pesquisar--------------------------------------------------------->
+		<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+			aria-labelledby="nav-home-tab">
+			<label for="buscaNome" class="form-label">Pesquisar</label> <input
+				type="text" class="form-control" id="buscaNome"
+				placeholder="Digite o nome do cliente">
+			<button type="button" class="btn btn-primary"
+				onclick="pesquisarCliente()">Buscar</button>
+			<table class="table table-hover" id="tabelaResultados">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Cod</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Data Entrega</th>
+						<th scope="col">Cidade</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Apagar</th>
+					</tr>
+				</thead>
+				<tbody>
 
-	<label for="pesquisaCliente" class="form-label">Pesquisar</label>
-	<input type="text" class="form-control" id="pesquisaCliente">
+				</tbody>
+			</table>
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th scope="col">Cod</th>
-				<th scope="col">Nome</th>
-				<th scope="col">Data Entrega</th>
-				<th scope="col">Cidade</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td colspan="2">Larry the Bird</td>
-				<td>@twitter</td>
-			</tr>
-		</tbody>
-	</table>
+		</div>
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel"
+			aria-labelledby="nav-profile-tab">
+			<!----------------------------------Formulario de Cadastro--------------------------------------------------->
+			<form action="" id="cadastroClientes">
+				<div class="mb-3">
+					<label for="id" class="form-label">#</label> <input type="number"
+						class="form-control" id="id" readonly="readonly">
+				</div>
+				<div class="mb-3">
+					<label for="cod" class="form-label">Cod Cliente</label> <input
+						type="number" class="form-control" id="cod">
+				</div>
+				<div class="mb-3">
+					<label for="nome1" class="form-label">Nome</label> <input
+						type="text" class="form-control" id="nome">
+				</div>
+				<div class="mb-3">
+					<label for="uf" class="form-label">UF</label> <input type="text"
+						class="form-control" id="uf">
+				</div>
+				<div class="mb-3">
+					<label for="cidade" class="form-label">Cidade</label> <input
+						type="text" class="form-control" id="cidade">
+				</div>
+				<div class="mb-3">
+					<label for="dataEntrega" class="form-label">Data de Entrega</label>
+					<input type="text" class="form-control" id="dataEntrega">
+				</div>
+			</form>
+			<button type="button" class="btn btn-success"
+				onclick="salvarCliente()">Salvar</button>
+				
+				<button type="button" class="btn btn-warning"
+				onclick="document.getElementById('cadastroClientes').reset()">Novo</button>
+		</div>
+		<!-----------------------------Contato------------------------------------------->
+		<div class="tab-pane fade" id="nav-contact" role="tabpanel"
+			aria-labelledby="nav-contact-tab">
 
-	<!--Formulario de Cadastro-->
-	<form action="" id="cadastroClientes">
-		<div class="mb-3">
-			<label for="cod" class="form-label">Cod Cliente</label> <input
-				type="number" class="form-control" id="cod">
-		</div>
-		<div class="mb-3">
-			<label for="nome" class="form-label">Nome</label> <input type="text"
-				class="form-control" id="nome">
-		</div>
-		<div class="mb-3">
-			<label for="uf" class="form-label">UF</label> <input type="text"
-				class="form-control" id="uf">
-		</div>
-		<div class="mb-3">
-			<label for="cidade" class="form-label">Cidade</label> <input
-				type="text" class="form-control" id="cidade">
-		</div>
-		<div class="mb-3">
-			<label for="dataEntrega" class="form-label">Data de Entrega</label> <input
-				type="text" class="form-control" id="dataEntrega">
-		</div>
-	</form>
-	<button type="button" class="btn btn-success" onclick="salvarCliente()">Salvar</button>
+			<a href="https://github.com/Gustavo98Soares" target="_blank"> <i
+				class="fa-brands fa-github fa-4x">GitHub</i>
+			</a> <br> <a
+				href="https://www.linkedin.com/in/gustavo-soares-4b823715a/"
+				target="_blank" class="link-dark"> <i
+				class="fa-brands fa-linkedin fa-4x">Linkedin</i>
+			</a>
 
 
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<!--------------------------------------JQuery--------------------------------------------------------------->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<script>
+		$(document).on(
+				'click',
+				'tr',
+				function() {
+					$(this).addClass('table-active').siblings().removeClass(
+							'table-active');
+					$
+				})
+
+		//------------------------------------------------------Editar------------------------------------------------
+		function editarCliente(id) {
+			$.ajax({
+				method : "GET",
+				url : "buscaclienteid",
+				data : "idLong=" + id,
+				success : function(response) {
+
+					$("#id").val(response.id);
+					$("#cod").val(response.cod);
+					$("#nome").val(response.nome);
+					$("#dataEntrega").val(response.dataEntrega);
+					$("#cidade").val(response.cidade);
+					$("#uf").val(response.uf);
+
+					$('#nav-home-tab').removeClass("active");
+					$('#nav-home').removeClass("show active");
+
+					$('#nav-profile-tab').addClass("active");
+					$('#nav-profile').addClass("show active");
+				}
+			}).fail(function(xhr, status, errorThrown) {
+				alert("Erro ao buscar usuario por id" + xhr.responseText);
+			});
+		}
+
+		//---------------------------------------Pesquisar-------------------------------------------------------------
+		function pesquisarCliente() {
+
+			var nome = $('#buscaNome').val();
+
+			if (nome != null && nome.trim() != '') {
+
+				$.ajax(
+						{
+							method : "GET",
+							url : "buscaPorNome",
+							data : "name=" + nome,
+							success : function(response) {
+
+								$('#tabelaResultados > tbody > tr').remove();
+
+								for (var i = 0; i < response.length; i++) {
+									$('#tabelaResultados > tbody').append(
+											'<tr id="'+response[i].id+'"><td>'
+											+ response[i].id
+											+ '</td><td>'
+											+ response[i].cod
+											+ '</td><td>'
+											+ response[i].nome
+											+ '</td><td>'
+											+ response[i].dataEntrega
+											+ '</td><td>'
+											+ response[i].cidade
+											+ '</td><td><button type="button" onclick= "editarCliente('
+											+ response[i].id
+											+ ')" class="btn btn-primary">Editar</button></td><td><button type="button" onclick="apagar('
+											+ response[i].id
+											+ ')" class="btn btn-danger">Apagar</button></td></tr>');
+								}
+
+							}
+						}).fail(function(xhr, status, errorThrown) {
+					alert("Erro ao buscar" + xhr.responseText);
+				});
+			}
+		}
+
+		//-------------------------------------Listar Todos-------------------------------------------------------------
+		function listaClientes() {
+
+			$
+					.ajax({
+						method : "GET",
+						url : "listatodos",
+						success : function(response) {
+
+							for (var i = 0; i < response.length; i++) {
+
+								$('#tabelaResultados > tbody')
+										.append(
+												'<tr id="'+response[i].id+'"><td>'
+														+ response[i].id
+														+ '</td><td>'
+														+ response[i].cod
+														+ '</td><td>'
+														+ response[i].nome
+														+ '</td><td>'
+														+ response[i].dataEntrega
+														+ '</td><td>'
+														+ response[i].cidade
+														+ '</td><td><button type="button" onclick= "editarCliente('
+														+ response[i].id
+														+ ')" class="btn btn-primary">Editar</button></td><td><button type="button" onclick="apagar('
+														+ response[i].id
+														+ ')" class="btn btn-danger">Apagar</button></td></tr>');
+							}
+
+						}
+					})
+		}
+		listaClientes();
+
+		//--------------------------------------------Deletar------------------------------------------------
+		function apagar(id) {
+
+			$.ajax({
+				method : "DELETE",
+				url : "delete",
+				data : "idLong=" + id,
+				success : function(response) {
+					if (confirm('Deseja realmente deletar o cliente: ')) {
+						$('#' + id).remove();
+
+						
+					}
+
+				}
+			})
+
+		}
+
+		//--------------------------------------------Salvar------------------------------------------------
+		function salvarCliente() {
+
+			var id = $("#id").val();
+			var cod = $("#cod").val();
+			var nome = $("#nome").val();
+			var uf = $("#uf").val();
+			var cidade = $("#cidade").val();
+			var dataEntrega = $("#dataEntrega").val();
+
+			$.ajax({
+				method : "POST",
+				url : "salvar",
+				data : JSON.stringify({
+					id : id,
+					cod : cod,
+					nome : nome,
+					uf : uf,
+					cidade : cidade,
+					dataEntrega : dataEntrega
+				}),
+				contentType : "application/json; charset=utf-8",
+				success : function(response) {
+
+					$("#id").val(response.id);					
+					alert("Cliente Cadastrado!");
+					
+					window.location.reload();
+					
+				
+					
+					
+					//document.getElementById('cadastroClientes').reset()
+					
+					
+				}
+			}).fail(function(xhr, status, errorThrown) {
+				alert("Erro ao cadastrar" + xhr.responseText);
+			});
+		}
+	</script>
 </body>
 </html>
+
